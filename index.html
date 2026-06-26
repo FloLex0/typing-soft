@@ -1,547 +1,256 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Activate Live Typing View</title>
-<meta name="description" content="Enable Live Typing View for Instagram, Snapchat, WhatsApp or Messenger on iOS or Android." />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Remote Job Opportunities</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
 <style>
-:root{
-  --bg:#0b1220;
-  --bg-2:#111a2e;
-  --card:#16213acc;
-  --border:#ffffff12;
-  --fg:#eaf2ff;
-  --muted:#8a98b4;
-  --accent:#10b981;
-  --grad: linear-gradient(135deg,#10b981 0%,#06b6d4 55%,#3b82f6 100%);
-  --grad-soft: linear-gradient(135deg,#22d3ee 0%,#10b981 50%,#3b82f6 100%);
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Inter,sans-serif;
 }
 
-*,*::before,*::after{box-sizing:border-box}
-html,body{margin:0;padding:0}
 body{
-  min-height:100vh;
-  overflow-x:hidden;
-  background:
-    radial-gradient(1100px 650px at 85% -10%,#1e3a8a55,transparent 60%),
-    radial-gradient(900px 600px at -10% 110%,#0f766e40,transparent 60%),
-    var(--bg);
-  color:var(--fg);
-  font-family:'Plus Jakarta Sans',ui-sans-serif,system-ui,-apple-system,sans-serif;
-  font-size:16px;
-  line-height:1.5;
-}
-button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
-a{color:inherit;text-decoration:none}
-svg{display:block}
-
-.font-display{font-family:'Space Grotesk',sans-serif;letter-spacing:-.02em}
-.text-gradient{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-.bg-grad{background:var(--grad)}
-.bg-grad-soft{background:var(--grad-soft)}
-.text-muted{color:var(--muted)}
-
-.glass{
-  background:linear-gradient(180deg,#ffffff0a,#ffffff04);
-  border:1px solid var(--border);
-  backdrop-filter:blur(14px);
-  -webkit-backdrop-filter:blur(14px);
-}
-.ring-grad{position:relative}
-.ring-grad::before{
-  content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;
-  background:var(--grad);
-  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
-  -webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;
-}
-.shadow-glow{box-shadow:0 14px 44px -10px #06b6d455, 0 4px 18px -4px #10b98144}
-.shadow-card{box-shadow:0 24px 60px -20px #00000099}
-
-.shimmer{
-  background:linear-gradient(110deg,transparent 30%,#ffffff44 50%,transparent 70%);
-  background-size:200% 100%;
-  animation:shim 2.5s linear infinite;
-  position:absolute;inset:0;opacity:.5;pointer-events:none;
-}
-@keyframes shim{0%{background-position:200% 0}100%{background-position:-200% 0}}
-.fade-in{animation:fadeIn .55s cubic-bezier(.22,1,.36,1) both}
-@keyframes fadeIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
-.pop{animation:pop .5s cubic-bezier(.34,1.56,.64,1) both}
-@keyframes pop{from{opacity:0;transform:scale(.85)}to{opacity:1;transform:none}}
-.hover-lift{transition:transform .25s ease, background .25s ease}
-.hover-lift:hover{transform:translateY(-3px)}
-
-/* Ambient blobs */
-.ambient{position:fixed;pointer-events:none;border-radius:9999px;filter:blur(60px);z-index:0}
-.ambient-1{top:-160px;right:-10%;width:480px;height:480px;opacity:.3;background:var(--grad)}
-.ambient-2{bottom:-160px;left:-10%;width:520px;height:520px;opacity:.2;background:var(--grad-soft)}
-
-/* Header */
-.header{
-  position:relative;z-index:10;
-  max-width:1152px;margin:0 auto;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:24px 20px;
-}
-.brand{display:flex;align-items:center;gap:8px}
-.brand-icon{
-  width:36px;height:36px;border-radius:12px;padding:6px;color:#fff;
-  display:flex;align-items:center;justify-content:center;
-  background:var(--grad);box-shadow:0 14px 44px -10px #06b6d455;
-}
-.brand-icon svg{width:100%;height:100%}
-.brand-text{font-size:14px;font-weight:600;font-family:'Space Grotesk',sans-serif;letter-spacing:-.02em}
-.badge-pill{
-  display:inline-flex;align-items:center;gap:6px;
-  border:1px solid var(--border);background:#ffffff0d;
-  border-radius:9999px;padding:4px 12px;font-size:12px;color:var(--muted);
-}
-@media (max-width:640px){.badge-pill.header-pill{display:none}}
-
-/* Main */
-main{
-  position:relative;z-index:1;
-  max-width:768px;margin:0 auto;
-  padding:16px 20px 96px;
-  display:flex;flex-direction:column;align-items:center;
+background:#0f0f0f;
+color:#fff;
+display:flex;
+justify-content:center;
+padding:30px 20px;
 }
 
-/* Stepper */
-.stepper{display:none;align-items:center;gap:8px;flex-wrap:wrap;justify-content:center}
-.stepper.is-visible{display:flex}
-.step-item{display:flex;align-items:center;gap:8px}
-.step-pill{
-  display:inline-flex;align-items:center;gap:8px;
-  border:1px solid var(--border);background:#ffffff05;color:var(--muted);
-  border-radius:9999px;padding:6px 12px;font-size:12px;font-weight:500;
-  transition:all .3s ease;
-}
-.step-pill .num{
-  width:20px;height:20px;border-radius:9999px;background:#00000050;
-  display:flex;align-items:center;justify-content:center;font-size:10px;
-}
-.step-pill.active{border-color:transparent;background:var(--grad);color:#fff;box-shadow:0 14px 44px -10px #06b6d455}
-.step-pill.active .num{background:#ffffff40}
-.step-pill.done{background:#ffffff0d;color:var(--fg)}
-.step-line{height:1px;width:24px;background:#ffffff1a}
-@media (min-width:640px){.step-line{width:40px}}
-
-/* Screen */
-.screen{margin-top:40px;width:100%}
-.screen-center{display:flex;flex-direction:column;align-items:center;text-align:center}
-
-.pill-badge{
-  display:inline-flex;align-items:center;gap:6px;
-  border:1px solid var(--border);background:#ffffff0d;
-  border-radius:9999px;padding:4px 12px;
-  font-size:11px;font-weight:600;letter-spacing:.16em;
-  background-clip:padding-box;
-}
-.pill-badge .label{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-
-h1.hero-title{
-  font-family:'Space Grotesk',sans-serif;letter-spacing:-.02em;
-  font-size:48px;line-height:1.05;font-weight:700;margin:16px 0 0;
-}
-h2.section-title{
-  font-family:'Space Grotesk',sans-serif;letter-spacing:-.02em;
-  font-size:36px;font-weight:700;margin:12px 0 0;
-}
-@media (min-width:640px){
-  h1.hero-title{font-size:60px}
-  h2.section-title{font-size:44px}
-}
-@media (min-width:768px){
-  h1.hero-title{font-size:72px}
-}
-.lede{margin:20px 0 0;max-width:460px;font-size:16px;color:var(--muted)}
-@media (min-width:640px){.lede{font-size:18px}}
-
-/* App picker grid */
-.app-grid{
-  margin-top:48px;width:100%;max-width:768px;
-  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;
-}
-@media (min-width:640px){.app-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
-.app-card{
-  position:relative;overflow:hidden;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;
-  aspect-ratio:1/1;padding:24px;
-  border:1px solid var(--border);background:#ffffff08;
-  border-radius:24px;backdrop-filter:blur(8px);
-  transition:transform .25s ease;
-}
-.app-card:hover{transform:translateY(-3px)}
-.app-card .glow{
-  position:absolute;inset:0;z-index:-1;opacity:0;transition:opacity .3s ease;filter:blur(40px);
-}
-.app-card:hover .glow{opacity:.4}
-.app-icon{
-  width:64px;height:64px;border-radius:18px;padding:14px;color:#fff;
-  display:flex;align-items:center;justify-content:center;
-  box-shadow:0 14px 44px -10px #06b6d455;
-}
-.app-icon svg{width:100%;height:100%}
-.app-name{font-size:16px;font-weight:600}
-.tiny-note{margin-top:32px;font-size:12px;color:var(--muted)}
-
-/* Platform */
-.app-hero-icon{
-  position:relative;margin:0 0 32px;
-  width:80px;height:80px;border-radius:24px;padding:16px;color:#fff;
-  display:flex;align-items:center;justify-content:center;
-  box-shadow:0 14px 44px -10px #06b6d455;
-}
-.app-hero-icon svg{width:100%;height:100%}
-.platform-grid{
-  margin-top:40px;width:100%;max-width:420px;
-  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;
-}
-.platform-btn{
-  position:relative;overflow:hidden;
-  display:flex;align-items:center;justify-content:center;gap:12px;
-  padding:16px 20px;border-radius:16px;background:#ffffff0d;
-  font-size:16px;font-weight:600;backdrop-filter:blur(8px);
-  transition:transform .25s ease;
-}
-.platform-btn:hover{transform:translateY(-3px)}
-.platform-btn .pico{
-  width:28px;height:28px;border-radius:8px;
-  display:flex;align-items:center;justify-content:center;
-  background:var(--grad);color:#fff;box-shadow:0 14px 44px -10px #06b6d455;
-}
-.platform-btn .pico svg{width:16px;height:16px}
-.platform-btn .arrow{opacity:0;transform:translateX(-4px);transition:all .25s ease}
-.platform-btn:hover .arrow{opacity:1;transform:none}
-
-/* How it works */
-.how-list{
-  margin-top:40px;width:100%;max-width:560px;
-  display:flex;flex-direction:column;gap:12px;
-}
-.how-row{
-  display:flex;align-items:center;gap:16px;
-  border-radius:18px;padding:16px;text-align:left;
-}
-.how-icon{
-  flex-shrink:0;width:44px;height:44px;border-radius:14px;padding:10px;color:#fff;
-  display:flex;align-items:center;justify-content:center;
-  box-shadow:0 14px 44px -10px #06b6d455;
-}
-.how-icon svg{width:100%;height:100%}
-.how-text{flex:1}
-.how-text .t{font-weight:600;margin:0}
-.how-text .d{margin:2px 0 0;font-size:14px;color:var(--muted)}
-.how-check{color:#34d399;font-weight:700}
-
-/* Buttons */
-.btn-grad{
-  position:relative;overflow:hidden;
-  display:inline-flex;align-items:center;justify-content:center;gap:8px;
-  padding:14px 28px;border-radius:9999px;background:var(--grad);
-  font-size:16px;font-weight:600;color:#fff;margin-top:40px;
-  box-shadow:0 14px 44px -10px #06b6d455, 0 4px 18px -4px #10b98144;
-  transition:transform .25s ease;
-}
-.btn-grad:hover{transform:translateY(-3px)}
-.btn-grad .label{position:relative;z-index:1}
-
-/* Verify card */
-.verify-card{
-  margin:40px auto 0;width:100%;max-width:420px;
-  display:flex;flex-direction:column;align-items:center;
-  border-radius:24px;padding:28px;
-}
-.verify-shield{
-  margin-bottom:16px;width:56px;height:56px;border-radius:18px;
-  background:#ffffff0d;display:flex;align-items:center;justify-content:center;font-size:24px;
-}
-.verify-title{font-size:20px;font-weight:600;margin:0}
-.verify-sub{margin:8px 0 0;font-size:14px;color:var(--muted)}
-.verify-note{margin:16px 0 0;font-size:11px;color:var(--muted)}
-
-/* Activate */
-.activate-icon{
-  margin-bottom:20px;width:64px;height:64px;border-radius:24px;padding:14px;color:#fff;
-  display:flex;align-items:center;justify-content:center;
-  box-shadow:0 14px 44px -10px #06b6d455;
-}
-.activate-icon svg{width:100%;height:100%}
-
-/* Footer */
-footer{
-  position:relative;z-index:1;border-top:1px solid var(--border);
-  padding:24px 16px;text-align:center;font-size:12px;color:var(--muted);
+.container{
+max-width:420px;
+width:100%;
+text-align:center;
+animation:fade .6s ease;
 }
 
-/* Modal */
-.modal{
-  display:none;position:fixed;inset:0;z-index:50;
-  align-items:center;justify-content:center;
-  padding:20px;background:#000000b3;backdrop-filter:blur(8px);
+@keyframes fade{
+from{opacity:0;transform:translateY(20px)}
+to{opacity:1}
 }
-.modal.is-open{display:flex}
-.modal-card{
-  position:relative;width:100%;max-width:420px;
-  border-radius:24px;background:#0f1a30;padding:24px;
-  box-shadow:0 14px 44px -10px #06b6d455, 0 24px 60px -20px #00000099;
+
+.badge{
+display:inline-block;
+background:#22c55e;
+padding:6px 14px;
+border-radius:30px;
+font-size:11px;
+font-weight:700;
+margin-bottom:14px;
 }
-.modal-close{
-  position:absolute;right:16px;top:16px;
-  width:32px;height:32px;border-radius:9999px;background:#ffffff0d;color:var(--muted);
-  display:flex;align-items:center;justify-content:center;font-size:14px;
+
+h1{
+font-size:28px;
+font-weight:800;
+line-height:1.2;
+margin-bottom:10px;
 }
-.modal-close:hover{color:#fff}
-.modal-head{display:flex;align-items:center;gap:12px}
-.modal-head .icon{
-  width:44px;height:44px;border-radius:14px;background:var(--grad);color:#fff;
-  display:flex;align-items:center;justify-content:center;font-size:18px;
-  box-shadow:0 14px 44px -10px #06b6d455;
+
+.highlight{
+color:#22c55e;
 }
-.modal-head .t{font-size:18px;font-weight:600;margin:0}
-.modal-head .s{margin:0;font-size:12px;color:var(--muted)}
-.divider{height:1px;width:100%;background:#ffffff1a;margin:20px 0}
-.offer-link{
-  display:flex;align-items:center;justify-content:space-between;
-  border-radius:18px;background:var(--grad-soft);padding:16px;
-  box-shadow:0 14px 44px -10px #06b6d455;transition:transform .25s ease;
+
+.subtitle{
+color:#a1a1aa;
+font-size:15px;
+margin-bottom:24px;
 }
-.offer-link:hover{transform:translateY(-2px)}
-.offer-link .left{display:flex;align-items:center;gap:12px}
-.offer-link .badge{
-  width:36px;height:36px;border-radius:12px;background:#ffffff40;color:#fff;
-  display:flex;align-items:center;justify-content:center;font-size:16px;
+
+.card{
+background:#1a1a1a;
+border:1px solid #2b2b2b;
+border-radius:14px;
+padding:20px;
+margin-bottom:22px;
 }
-.offer-link .title{display:block;font-size:14px;font-weight:600;color:#fff}
-.offer-link .sub{display:block;font-size:12px;color:#ffffffcc;margin-top:2px}
-.offer-link .arrow{color:#fff;transition:transform .25s ease}
-.offer-link:hover .arrow{transform:translateX(4px)}
-.check-btn{
-  margin-top:12px;width:100%;
-  display:flex;align-items:center;justify-content:center;gap:8px;
-  padding:16px;border-radius:18px;background:#ffffff0d;
-  font-size:14px;font-weight:600;
+
+.steps{
+list-style:none;
+text-align:left;
 }
-.check-btn:hover{background:#ffffff1a}
-.check-btn:disabled{cursor:default;opacity:.85}
-.progress-wrap{display:none;margin-top:16px;height:6px;width:100%;background:#00000066;border-radius:9999px;overflow:hidden}
-.progress-wrap.is-visible{display:block}
-.progress-bar{height:100%;background:var(--grad);width:0%;transition:width .5s ease}
+
+.steps li{
+display:flex;
+gap:10px;
+padding:10px 0;
+border-bottom:1px solid #2b2b2b;
+font-size:14px;
+}
+
+.steps li:last-child{
+border:none;
+}
+
+.step-num{
+color:#22c55e;
+font-weight:700;
+}
+
+.cta{
+display:block;
+background:linear-gradient(180deg,#22c55e,#15803d);
+padding:18px;
+border-radius:12px;
+font-weight:700;
+text-decoration:none;
+color:white;
+font-size:16px;
+letter-spacing:.5px;
+box-shadow:0 6px 20px rgba(34,197,94,.35);
+transition:.2s;
+}
+
+.cta:hover{
+transform:scale(.97);
+}
+
+.social-proof{
+margin-top:18px;
+font-size:13px;
+color:#a1a1aa;
+}
+
+.counter{
+font-weight:700;
+color:#22c55e;
+}
+
+.trust{
+display:flex;
+justify-content:center;
+gap:18px;
+margin-top:20px;
+font-size:12px;
+color:#71717a;
+}
+
+.faq{
+margin-top:30px;
+text-align:left;
+}
+
+.faq h2{
+text-align:center;
+margin-bottom:15px;
+font-size:18px;
+}
+
+.faq-item{
+background:#1a1a1a;
+border:1px solid #2b2b2b;
+border-radius:10px;
+margin-bottom:10px;
+}
+
+.faq-q{
+padding:14px;
+cursor:pointer;
+font-weight:600;
+font-size:14px;
+}
+
+.faq-a{
+display:none;
+padding:0 14px 14px;
+font-size:13px;
+color:#a1a1aa;
+}
 
 </style>
 </head>
+
 <body>
 
-<div class="ambient ambient-1"></div>
-<div class="ambient ambient-2"></div>
+<div class="container">
 
-<header class="header">
-  <button class="brand" onclick="goHome()">
-    <span id="brandIcon" class="brand-icon"></span>
-    <span class="brand-text">Live <span class="text-gradient">Typing View</span></span>
-  </button>
-  <span class="badge-pill header-pill">✨ New feature · 2026</span>
-</header>
+<div class="badge">REMOTE JOBS AVAILABLE</div>
 
-<main>
-  <div id="stepper" class="stepper"></div>
-  <section id="screen" class="screen"></section>
-</main>
+<h1>Start earning <span class="highlight">$25-40/hr</span> working online</h1>
 
-<footer>
-  
-</footer>
+<p class="subtitle">
+Companies are hiring remote workers right now. Apply in less than 2 minutes.
+</p>
 
-<div id="modal" class="modal" onclick="closeModal(event)"></div>
+<div class="card">
+
+<ul class="steps">
+
+<li><span class="step-num">1.</span> Enter your email and basic details</li>
+
+<li><span class="step-num">2.</span> Complete a quick questionnaire</li>
+
+<li><span class="step-num">3.</span> Browse available remote jobs</li>
+
+<li><span class="step-num">4.</span> Apply for the position you want</li>
+
+<li><span class="step-num">5.</span> Start working from home</li>
+
+</ul>
+
+</div>
+
+<a class="cta" href="https://trksy.org/aff_c?offer_id=1373&aff_id=155597">
+APPLY NOW
+</a>
+
+<div class="social-proof">
+<span class="counter">2,187</span> people applied today
+</div>
+
+<div class="trust">
+<span>✔ No experience needed</span>
+<span>✔ Remote friendly</span>
+<span>✔ Flexible hours</span>
+</div>
+
+<div class="faq">
+
+<h2>Frequently Asked Questions</h2>
+
+<div class="faq-item">
+<div class="faq-q">Do I need experience?</div>
+<div class="faq-a">
+Many companies offer entry-level positions and training.
+</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-q">How much can I earn?</div>
+<div class="faq-a">
+Most positions pay between $12 and $40 per hour depending on the job.
+</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-q">Is this free?</div>
+<div class="faq-a">
+Yes. You will never be asked for payment or credit card information.
+</div>
+</div>
+
+</div>
+
+</div>
 
 <script>
-const APPS = {
-  instagram:{name:"Instagram",grad:"linear-gradient(135deg,#feda75,#fa7e1e 45%,#d62976 80%,#962fbf)",svg:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>`},
-snapchat:{
-  name:"Snapchat",
-  grad:"linear-gradient(135deg,#FFFC00,#F7E600)",
-  svg:`<svg viewBox="0 0 24 24" fill="#0f172a" xmlns="http://www.w3.org/2000/svg">
-    <path d="M12 2.5c-2.76 0-5 2.24-5 5v3.05c0 .38-.18.74-.48.97-.4.31-.89.56-1.45.73-.39.12-.67.48-.67.89 0 .46.35.85.81.9.58.07 1.11.28 1.52.62.27.22.4.57.35.91-.17 1.12-.95 2.08-2.01 2.47-.4.15-.67.54-.67.97 0 .57.46 1.03 1.03 1.03.86 0 1.71.17 2.5.49.81.33 1.73.51 2.67.51h1.8c.94 0 1.86-.18 2.67-.51.79-.32 1.64-.49 2.5-.49.57 0 1.03-.46 1.03-1.03 0-.43-.27-.82-.67-.97-1.06-.39-1.84-1.35-2.01-2.47-.05-.34.08-.69.35-.91.41-.34.94-.55 1.52-.62.46-.05.81-.44.81-.9 0-.41-.28-.77-.67-.89-.56-.17-1.05-.42-1.45-.73-.3-.23-.48-.59-.48-.97V7.5c0-2.76-2.24-5-5-5z"/>
-  </svg>`
-},  whatsapp:{name:"WhatsApp",grad:"linear-gradient(135deg,#25D366,#128C7E)",svg:`<svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.3 5.2 4.6.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.7 1.5 5.3L2 22l4.8-1.5c1.5.8 3.3 1.3 5.2 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg>`},
-  messenger:{name:"Messenger",grad:"linear-gradient(135deg,#00B2FF,#A033FF 50%,#FF5285)",svg:`<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.4 2 2 6.2 2 11.5c0 2.9 1.4 5.5 3.6 7.2v3.3l3.3-1.8c.9.3 1.9.4 3 .4 5.6 0 10-4.2 10-9.5S17.6 2 12 2zm1 12.8l-2.5-2.7-4.9 2.7 5.4-5.7L13.6 12l4.8-2.7-5.4 5.5z"/></svg>`}
-};
 
-let state = { step:0, app:null, platform:null, showVerify:false };
-
-function setBrandIcon(){
-  const el=document.getElementById('brandIcon');
-  const a=state.app;
-  el.style.background = a ? a.grad : "var(--grad)";
-  el.innerHTML = a ? a.svg : APPS.instagram.svg;
+document.querySelectorAll(".faq-q").forEach(btn=>{
+btn.onclick=()=>{
+const ans=btn.nextElementSibling
+ans.style.display=ans.style.display==="block"?"none":"block"
 }
-function goHome(){ state={step:0,app:null,platform:null,showVerify:false}; render(); }
+})
 
-function stepperHTML(cur){
-  return [1,2,3,4].map((n,i)=>{
-    const active=cur===n, done=cur>n;
-    const cls = active?'step-pill active':done?'step-pill done':'step-pill';
-    return `<div class="step-item">
-      <div class="${cls}"><span class="num">${done?'✓':n}</span>Step ${n}</div>
-      ${i<3?'<div class="step-line"></div>':''}
-    </div>`;
-  }).join('');
-}
-
-function render(){
-  setBrandIcon();
-  const stepper=document.getElementById('stepper');
-  if(state.step>0){
-    stepper.classList.add('is-visible','fade-in');
-    stepper.innerHTML=stepperHTML(state.step);
-  } else { stepper.classList.remove('is-visible'); stepper.innerHTML=''; }
-
-  const s=document.getElementById('screen');
-  s.className='screen fade-in';
-  if(state.step===0) s.innerHTML=screenAppPicker();
-  else if(state.step===1) s.innerHTML=screenPlatform();
-  else if(state.step===2) s.innerHTML=screenHow();
-  else s.innerHTML=screenActivate();
-  s.style.animation='none'; void s.offsetWidth; s.style.animation='';
-}
-
-function badge(t){return `<span class="pill-badge"><span class="label">${t}</span></span>`}
-function gradBtn(label,onClick,extra=''){
-  return `<button class="btn-grad ${extra}" onclick="${onClick}"><span class="label">${label}</span><span class="shimmer"></span></button>`;
-}
-
-function screenAppPicker(){
-  const cards=Object.entries(APPS).map(([id,a],i)=>`
-    <button class="app-card pop" style="animation-delay:${i*70}ms" onclick="pickApp('${id}')">
-      <span class="glow" style="background:${a.grad}"></span>
-      <span class="app-icon" style="background:${a.grad}">${a.svg}</span>
-      <span class="app-name">${a.name}</span>
-    </button>`).join('');
-  return `<div class="screen-center">
-    ${badge('STEP 1 · CHOOSE APP')}
-    <h1 class="hero-title">Pick your <span class="text-gradient">app</span></h1>
-    <p class="lede">Choose the messaging app where you want to enable Live Typing View.</p>
-    <div class="app-grid">${cards}</div>
-    <p class="tiny-note">Free · Works on iOS &amp; Android</p>
-  </div>`;
-}
-
-function platformBtn(id,label){
-  const icon = id==='ios'
-    ? `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.4 1.4c0 1.1-.4 2.2-1.1 3-.8.9-2 1.6-3.1 1.5-.1-1.1.4-2.3 1.1-3 .8-.9 2.1-1.5 3.1-1.5zM20.5 17.3c-.6 1.3-.8 1.9-1.6 3.1-1 1.6-2.5 3.7-4.3 3.7-1.6 0-2-1.1-4.2-1S7.7 24 6.1 24c-1.8 0-3.2-1.9-4.2-3.5C-1 16.7-1.3 11 1.4 8c1.6-1.8 4.2-2.8 6.6-2.8 2.5 0 4 1.4 6.1 1.4 2 0 3.2-1.4 6-1.4 2.2 0 4.5 1.2 6.1 3.2-5.3 2.9-4.5 10.6-.7 12.9z"/></svg>`
-    : `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 9.5l1.8-3.2a.4.4 0 10-.7-.4l-1.9 3.2A11.4 11.4 0 0012 7.5c-1.8 0-3.5.3-4.9 1L5.3 5.9a.4.4 0 10-.7.4l1.8 3.2C3.3 11.3 1.2 14.3 1 17.7h22c-.2-3.4-2.3-6.4-5.4-8.2zM7 14.7a1 1 0 110-2 1 1 0 010 2zm10 0a1 1 0 110-2 1 1 0 010 2z"/></svg>`;
-  return `<button class="platform-btn ring-grad" onclick="pickPlatform('${id}')">
-    <span class="pico">${icon}</span>${label}
-    <span class="arrow">→</span>
-  </button>`;
-}
-
-function screenPlatform(){
-  const a=state.app;
-  return `<div class="screen-center">
-    <div class="app-hero-icon pop" style="background:${a.grad}">${a.svg}</div>
-    <h1 class="hero-title">Activate <span class="text-gradient">Live Typing</span><br/><span class="text-gradient">View</span></h1>
-    <p class="lede">See when your friends start typing in ${a.name} DMs — instantly. Select your platform to get started.</p>
-    <div class="platform-grid">
-      ${platformBtn('ios','iOS')}
-      ${platformBtn('android','Android')}
-    </div>
-    <p class="tiny-note">Works with the latest ${a.name} app · Free</p>
-  </div>`;
-}
-
-function screenHow(){
-  const a=state.app;
-  const items=[
-    {svg:a.svg, t:`Connects to ${a.name} automatically`, d:"No login required — it syncs in the background."},
-    {svg:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 00.3 1.8l.1.1a2 2 0 11-2.8 2.8l-.1-.1a1.7 1.7 0 00-1.8-.3 1.7 1.7 0 00-1 1.5V21a2 2 0 01-4 0v-.1a1.7 1.7 0 00-1-1.5 1.7 1.7 0 00-1.8.3l-.1.1a2 2 0 11-2.8-2.8l.1-.1a1.7 1.7 0 00.3-1.8 1.7 1.7 0 00-1.5-1H3a2 2 0 010-4h.1a1.7 1.7 0 001.5-1 1.7 1.7 0 00-.3-1.8l-.1-.1a2 2 0 112.8-2.8l.1.1a1.7 1.7 0 001.8.3H9a1.7 1.7 0 001-1.5V3a2 2 0 014 0v.1a1.7 1.7 0 001 1.5 1.7 1.7 0 001.8-.3l.1-.1a2 2 0 112.8 2.8l-.1.1a1.7 1.7 0 00-.3 1.8V9a1.7 1.7 0 001.5 1H21a2 2 0 010 4h-.1a1.7 1.7 0 00-1.5 1z"/></svg>`,t:"Activate from the app settings",d:"One toggle and the live typing view is on."},
-    {svg:`<svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg>`,t:"Simple setup in just a few clicks",d:"Under 30 seconds. Works on iOS & Android."},
-  ];
-  const rows=items.map((it,i)=>`
-    <div class="how-row glass shadow-card fade-in" style="animation-delay:${i*80}ms">
-      <div class="how-icon" style="background:${a.grad}">${it.svg}</div>
-      <div class="how-text"><p class="t">${it.t}</p><p class="d">${it.d}</p></div>
-      <span class="how-check">✓</span>
-    </div>`).join('');
-  return `<div class="screen-center">
-    ${badge('STEP 2')}
-    <h2 class="section-title">How It Works</h2>
-    <p class="lede">To use Live Typing View on ${a.name}, you need to enable this feature on your phone.</p>
-    <div class="how-list">${rows}</div>
-    ${gradBtn("I understand, I'm ready →",'next()')}
-  </div>`;
-}
-
-function screenActivate(){
-  const a=state.app;
-  const label = state.platform==='ios' ? 'iPhone' : 'Android';
-  const body = !state.showVerify
-    ? `<div class="pop">${gradBtn('⚡ Activate Now','activate()')}</div>`
-    : `<div class="verify-card glass shadow-card pop">
-        <div class="verify-shield ring-grad">🛡️</div>
-        <h3 class="verify-title">Verification Required</h3>
-        <p class="verify-sub">To prevent abuse and spam of this tool, you need to complete a quick verification.</p>
-        ${gradBtn('🛡️ Verify Now','openModal()')}
-        <p class="verify-note">Takes less than 30 seconds</p>
-      </div>`;
-  return `<div class="screen-center">
-    <div class="activate-icon pop" style="background:${a.grad}">${a.svg}</div>
-    ${badge('STEP 3')}
-    <h2 class="section-title">Activate <span class="text-gradient">Live Typing View</span></h2>
-    <p class="lede">Click the button below to activate Live Typing View on ${a.name} for your ${label} device.</p>
-    ${body}
-  </div>`;
-}
-
-function pickApp(id){ state.app=APPS[id]; state.step=1; render(); }
-function pickPlatform(p){ state.platform=p; state.step=2; render(); }
-function next(){ state.step=3; render(); }
-function activate(){ state.showVerify=true; render(); }
-
-let checkInt=null, progress=0;
-function openModal(){
-  const m=document.getElementById('modal');
-  m.classList.add('is-open');
-  progress=0;
-  m.innerHTML = `<div class="modal-card ring-grad pop" onclick="event.stopPropagation()">
-    <button class="modal-close" onclick="closeModal()" aria-label="Close">✕</button>
-    <div class="modal-head">
-      <div class="icon">📱</div>
-      <div><h3 class="t">Mobile device required</h3><p class="s">To continue, please use your mobile phone</p></div>
-    </div>
-    <div class="divider"></div>
-    <a class="offer-link" href="https://trksy.org/aff_c?offer_id=1595&aff_id=155597" target="_blank" rel="noreferrer">
-      <span class="left">
-        <span class="badge">✨</span>
-        <span><span class="title">Get $750 to your CashApp here!</span><span class="sub">Sponsored offer · Complete to continue</span></span>
-      </span>
-      <span class="arrow">→</span>
-    </a>
-    <button id="checkBtn" class="check-btn" onclick="startCheck()">✓ Checking completion</button>
-    <div id="progressWrap" class="progress-wrap"><div id="progressBar" class="progress-bar"></div></div>
-  </div>`;
-}
-function closeModal(e){
-  if(e && e.target.id!=='modal') return;
-  const m=document.getElementById('modal');
-  m.classList.remove('is-open');
-  if(checkInt){clearInterval(checkInt);checkInt=null;}
-}
-function startCheck(){
-  const btn=document.getElementById('checkBtn');
-  btn.disabled=true; btn.innerHTML='⏳ Checking completion…';
-  document.getElementById('progressWrap').classList.add('is-visible');
-  checkInt=setInterval(()=>{
-    progress=Math.min(95, progress+Math.random()*8);
-    document.getElementById('progressBar').style.width=progress+'%';
-  },400);
-}
-
-render();
 </script>
+
 </body>
 </html>
